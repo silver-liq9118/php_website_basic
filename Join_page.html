@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  
+
+  var duplicate_message = '';
+  var password = document.getElementById("password").value;
+  var password_confirm = document.getElementById("password_confirm").value;
+  var ID_confirm = duplicate_message;
+
+  function id_duplication() {
+  /* ID 중복 확인 버튼을 클릭했을 때 실행할 코드 */
+  /* PHP 파일로부터 받은 응답을 처리하는 코드*/
+  var email = document.getElementById("email").value;
+  $.ajax({
+    url: 'check_duplicate.php', // PHP 파일의 경로
+    type: 'POST',
+    dataType: 'html',
+    data: {email:email}, // PHP 파일로 전달할 데이터
+    success: function(response) {
+      $('#duplicate_message').html(response); // 결과를 표시할 요소에 HTML 삽입
+      duplicate_message = $('#duplicate_message').text();
+      receive();
+    },
+    error: function() {
+      alert('오류가 발생했습니다.');
+    }
+  });
+
+  }
+
+  function receive(){
+
+  password = document.getElementById("password").value;
+  password_confirm = document.getElementById("password_confirm").value;
+  ID_confirm = duplicate_message;
+
+
+  }
+
+ 
+  function confirm_error() {
+  
+    receive()
+
+  // 특정 조건 확인
+  if (password === "" | password_confirm === ""){
+    $('#password_confirm_error').html("패스워드를 입력해주세요")
+  
+    }
+
+    else {
+
+      
+    if (password === password_confirm) {
+          $('#password_confirm_error').html("패스워드가 일치합니다.")
+          if(duplicate_message==="사용 가능한 ID입니다."){  
+            return true;
+          }
+          else {
+            console.log(ID_confirm);
+            $('#confirm_error').html("ID를 다시 확인해 주세요.");
+            return false;
+          }
+          
+        } else {
+          // 조건 미충족 시 페이지 이동 중지
+          $('#password_confirm_error').html("패스워드가 일치하지 않습니다.");
+          return false;
+        }
+
+    
+    
+    }
+}
+
+</script>
+  <style>
+    /* 스타일링을 위한 CSS 코드 */
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 400px;
+      height: auto;
+      border: 1px solid #ccc;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      /* 포커스 시 기본값 숨김 */
+      background-color: white;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .input-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .input-label {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      /* 포커스 시 기본값 숨김 */
+      background-color: white;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .register-link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 16px;
+      color: #888;
+    }
+    .register-link a {
+      text-decoration: none;
+      color: #888;
+    }
+    .message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #888;
+    }
+    .error-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: red;
+    }
+    .custom-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>&#127939;Join US&#127939;</h2>
+    <form action="join.php" method="post" onsubmit="return confirm_error()">
+    <form action="check_duplicate.php" method="post"> 
+      <div class="form-group">
+        <!--ID 입력 및 중복체크-->
+        <div class="input-row">
+          <label for="email" class="input-label">ID:</label>
+          <input type="text" id="email" name="email" required
+           placeholder="example@abc.com">
+          <button type="button" onclick="id_duplication()"  class="custom-button">ID 중복 확인</button>
+        </div>
+        <div class="error-message"><p id="duplicate_message"></p></div>
+        <!--이름 입력 -->
+        <div class="input-row">
+          <label for="name" class="input-label">Name:</label>
+          <input type="text" id="name" name="name" required
+          >
+        </div>
+        <div class="error-message"><p id="duplicate_message"></p></div>
+       
+        <!--회원가입-->
+      <div class="form-group">
+        <div class="input-row">
+          <label for="password" class="input-label">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="error-message"></div>
+        <div class="input-row">
+          <label for="password_confirm" class="input-label">Password Confirm:</label>
+          <input type="password" id="password_confirm" name="password_confirm" required>
+        </div>
+        <div class="error-message"><p id="password_confirm_error"></p></div>
+        <div class="error-message"><p id="confirm_error"></p></div>
+      </div>
+      <input type="submit" onclick="confirm_error()" value="회원가입" name="join">
+    </form>
+    </form>
+  </div><p></p></div>
+</body>
+</html> 
