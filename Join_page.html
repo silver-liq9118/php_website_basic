@@ -13,6 +13,21 @@
   var password_confirm = document.getElementById("password_confirm").value;
   var ID_confirm = duplicate_message;
 
+  /*뒤로가기 초기화*/
+  window.onload = function() {
+            if (window.history && window.history.pushState) {
+                window.history.pushState("", "", window.location.href);
+
+                window.onpopstate = function() {
+                    document.getElementById("name").value = "";
+                    document.getElementById("email").value = "";
+                    document.getElementById("password").value = "";
+                    document.getElementById("password_confirm").value = "";
+                };
+            }
+        };
+
+
   function id_duplication() {
   /* ID 중복 확인 버튼을 클릭했을 때 실행할 코드 */
   /* PHP 파일로부터 받은 응답을 처리하는 코드*/
@@ -182,8 +197,8 @@
 <body>
   <div class="container">
     <h2>&#127939;Join US&#127939;</h2>
-    <form action="join.php" method="post" onsubmit="return confirm_error()">
-    <form action="check_duplicate.php" method="post"> 
+    <form action="join.php" method="post" onsubmit="return confirm_error()" autocomplete="off">
+    <form action="check_duplicate.php" method="post" autocomplete="off"> 
       <div class="form-group">
         <!--ID 입력 및 중복체크-->
         <div class="input-row">
@@ -196,8 +211,7 @@
         <!--이름 입력 -->
         <div class="input-row">
           <label for="name" class="input-label">Name:</label>
-          <input type="text" id="name" name="name" required
-          >
+          <input type="text" id="name" name="name" required>
         </div>
         <div class="error-message"><p id="duplicate_message"></p></div>
        
