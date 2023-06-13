@@ -89,9 +89,12 @@
         text-decoration: none;
         transition: color 0.3s ease;
         }
-
         .post-link:hover {
         color: #ff0000;
+        }
+        .not-link {
+        text-align: center;
+        
         }
     </style>
 </head>
@@ -99,16 +102,18 @@
 <body>
     <h1>&#9997;게시판&#128172;</h1>
     <div class="button-container">
-        <input type="submit" value="게시글 작성하기&#128221;" name="post" onclick="window.location.href='write_post_page.html'">
+        <input type="submit" value="게시글 작성하기&#128221;" name="post" onclick="window.location.href='write_post_page.php'">
         <div class="input-container">
-            <input type="text" id="find_title" name="find_title" required placeholder="찾고싶은 게시물 제목">
-            <button onclick="find()">찾기&#128269;</button>
+        <form action="get_board_search.php" name="find_title"method="post" autocomplete="off">
+        <input type="text" id="find_title" name="find_title" required placeholder="찾고싶은 게시물 제목">
+        <input type="submit" value="찾기&#128269;">
+        </form>
         </div>
     </div>
     <br>
     <table>
         <tr>
-            <th>No.</th>
+            <th></th>
             <th>제목</th>
             <th>작성자</th>
             <th>작성일</th>
@@ -116,6 +121,35 @@
         <?php
 
         // 게시물 데이터를 동적으로 표에 추가합니다.
+
+        if ($rows === 0) {
+            echo "<h3 class='not-link'>&#128269; 해당 게시글을 찾을 수 없습니다. &#128531;</h3>";
+            echo "<h4 class='not-link'>3초후 게시판으로 이동됩니다.</h3>";
+        
+            echo "<div id='countdown'></div>";
+            echo "<script>";
+            echo "var countdownElement = document.getElementById('countdown');";
+            echo "var countdownTime = 3000;"; 
+        
+            echo "function updateCountdown() {";
+            echo "  countdownElement.textContent = (countdownTime / 1000);";
+            echo "  countdownTime -= 1000;";
+            echo "  if (countdownTime >= 0) {";
+            echo "    setTimeout(updateCountdown, 1000);"; // 1초(1000ms)마다 업데이트
+            echo "  } else {";
+            echo "    window.location.href = 'board.php';";
+            echo "  }";
+            echo "}";
+            echo "setTimeout(updateCountdown, 1000);"; // 카운트다운 시작
+            echo "</script>";
+
+            echo "<br>";
+        
+            exit;
+        }
+        
+
+        else {
         foreach ($rows as $post) {
             $postId = $post['id'];
             echo "<tr onclick='goToBoard({$postId})'>";
@@ -132,13 +166,23 @@
                 include "get_board_content.php";
 
                 return "게시물 {$postId}의 콘텐츠";
-            }?>
+            }}
+            ?>
     </table>
     <script>
     function goToBoard(postId) {
         // 게시물 상세 페이지로 이동합니다.
         window.location.href = 'get_board_content.php?id=' + postId;
     }
+
+    function BackToBoard() {
+        
+        window.location.href = 'board_page.php';
+    }
     </script>
+
+
+    </script>
+    
 </body>
 </html>

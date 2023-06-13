@@ -19,11 +19,9 @@ else {
     $content ="";
     $author ="";
 
-
     return include "access_failed.html";
 
 }
-
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
