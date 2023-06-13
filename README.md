@@ -1,8 +1,12 @@
 # php_website_basic
-PHP Web site basic, just login and sign up <br>
-&#128549; Sorry for this program about spagetti code &#127837;
-programmer is newbie... 
+PHP Web site basic, login and sign up posts board <br> 
+(posts board just writing and reading... delete update is not yet.) <br>
+(posts board can access only logined user) <br>
 
+<br>
+&#128549; Sorry for this program about spagetti code &#127837;
+programmer is newbie... <br>
+ <br>
 Using About <br>
 Language : PHP, HTML, SQL <br>
 HTML Contents just Korean <br>
@@ -16,7 +20,8 @@ More information in just korean tstory blog url
 2. Join
 (https://silver-liq9118.tistory.com/entry/Project-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B5%AC%EC%B6%95-PHP-2-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85)
 
-PHP 웹 사이트 기본으로 로그인 기능과 회원가입 기능이 있습니다 
+PHP 웹 사이트 기본으로 로그인 기능과 회원가입 기능이 있습니다.
+posts board 글쓰기 기능과 글 읽기 기능이 추가되었습니다!
 더 자세한 정보는 위의 티스토리 블로그를 방문해주세요!
 
 *만들다가 느낀거지만 클린하지 않은 &#127837;"스파게티 코드"&#127837;네요... &#128549;&#128549;
@@ -30,6 +35,8 @@ PHP 웹 사이트 기본으로 로그인 기능과 회원가입 기능이 있습
 ### [Board page] (In Progress)
 <br>
 <img src="https://github.com/silver-liq9118/php_website_basic/assets/68416184/ecc510a8-c6e1-4ac8-99ed-1b98e9bc1366.png"  width="400" height="400"/>
+<br>
+
 
 
 
