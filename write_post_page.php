@@ -94,6 +94,15 @@ try
         input[type="submit"]:hover,input[type="button"]:hover {
             background-color: #0056b3;
         }
+        input[type=file]::file-selector-button {
+        width: 90px;
+        height: 30px;
+        background: #fff;
+        border: 1px solid rgb(77,77,77);
+        border-radius: 10px;
+        cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -101,7 +110,7 @@ try
     <div class = "notice"name="notice"style="font-family: Arial, sans-serif;"> &#9994; 비속어를 지양하는 지성인이 됩시다 &#10024; </div>
     <p></p>
     <div class="container">
-        <form action="write_post.php" method="post">
+        <form action="write_post.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title"></label>
                 <input type="text" id="title" name="title" required placeholder="제목을 입력해주세요." style="font-family: Arial, sans-serif;"> 
@@ -111,8 +120,10 @@ try
                 <label for="content"></label>
                 <textarea id="content" name="content" rows="20" required placeholder="내용을 입력해주세요." style="font-family: Arial, sans-serif;"></textarea> 
             </div>
-            
             <div class="button-group">
+            <label for="file"></label>
+                <!--<input type="file" accept=".doc,.docx"> 특정파일 허용 화이트리스트-->
+                <input type="file" id="file" name="file">
                 <input type="submit" value="작성하기">
                 <input type="button" value="뒤로가기" onclick="goToBoardPage()">
             </div>

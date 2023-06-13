@@ -10,6 +10,8 @@ if (session_status() === PHP_SESSION_NONE) {
     $sql = "SELECT content,title,author, created_at , updated_at FROM posts WHERE id=$postId";
     $result = $conn->query($sql);
 
+
+
     if ($result) {
         $row = $result->fetch_assoc();
         $content = $row['content'];
@@ -17,6 +19,22 @@ if (session_status() === PHP_SESSION_NONE) {
         $author = $row['author'];
         $created_at = $row['created_at'];
         $updated_at = $row['updated_at'];
+
+        $sql_file = "SELECT filename_user, filepath, filename FROM files WHERE post_id = $postId";
+        $file_result = $conn->query($sql_file);
+        
+        if ($file_result) {
+            $file_row = $file_result->fetch_assoc();
+            $filename = $file_row['filename'];
+            $filename_user = $file_row['filename_user'];
+            $filepath = $file_row['filepath'];
+        }
+
+        else {
+        return include "access_failed.html";
+        }
+
+
      } 
      
      else {
@@ -106,8 +124,28 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="info">
             <p><i class="fas fa-user" style="color: #66666;"></i>&nbsp;&nbsp;<?php echo nl2br($author); ?><br>작성일 : <?php echo nl2br($created_at); ?> 수정일: <?php echo nl2br($updated_at); ?> </p></div>
         <hr>
+        <div class="container"> 
         <div class="content">
-            <p><?php echo nl2br($content); ?></p>
+            <p><?php echo nl2br($content); ?></p> </div>
+        </div>
+        <div>
+        <!--파일 가져오기-->
+        <?php
+
+        if ($file_result) {
+
+             // 파일 확장자에 따라 다운로드 링크 제공
+            // $allowedExtensions = array('pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt'); // 다운로드 가능한 파일 확장자 목록
+            //$fileExtension = pathinfo($filename_user, PATHINFO_EXTENSION); // 파일 확장자 추출
+            //$fileName = pathinfo($filename_user, PATHINFO_FILENAME); // 확장자를 제외한 파일 이름 추출
+            //경로 인코딩이 도저히 안돼서절대경로로 변경
+            
+                echo "$filepath";
+                echo '<a href="' . $filepath . '" download>파일 다운로드: ' . $filename . '</a>';
+
+        }
+
+        ?>
         </div>
         <div class="button-group">
             <button onclick="goToBoardPage()">뒤로 가기</button>
