@@ -1,6 +1,6 @@
 # php_website_basic
-PHP Web site basic, login and sign up posts board <br> 
-(posts board just writing and reading... delete update is not yet.) <br>
+PHP Web site basic, login and sign up and posts board <br> 
+(posts board writing and reading and searching ... delete update is not yet.) <br>
 (posts board can access only logined user) <br>
 
 <br>
