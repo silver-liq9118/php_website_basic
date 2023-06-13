@@ -19,6 +19,8 @@ More information in just korean tstory blog url
 (https://silver-liq9118.tistory.com/entry/Project-%ED%95%9C%EA%B1%B8%EC%9D%8C%EB%B6%80%ED%84%B0-%EB%8B%A4%EC%8B%9C-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B5%AC%EC%B6%95-PHP-1-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95-%EB%B6%80%ED%84%B0-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EA%B9%8C%EC%A7%80)
 2. Join
 (https://silver-liq9118.tistory.com/entry/Project-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B5%AC%EC%B6%95-PHP-2-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85)
+3. Post board ( board and post write )
+https://silver-liq9118.tistory.com/entry/Project-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B5%AC%EC%B6%95-PHP-3-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A9%94%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%8F-%EC%93%B0%EA%B8%B0
 
 PHP 웹 사이트 기본으로 로그인 기능과 회원가입 기능이 있습니다.
 posts board 글쓰기 기능과 글 읽기 기능이 추가되었습니다!
