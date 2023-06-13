@@ -30,14 +30,14 @@ posts board 글쓰기 기능과 글 읽기 기능이 추가되었습니다!
 
 ### [Log in, Sign Up page] 로그인 및 회원가입 페이지 
 ![image](https://github.com/silver-liq9118/php_website_basic/assets/68416184/b1599500-3193-4a96-b77d-ef586051008a)
-<br><br>
-
+<br>
 ### [post write page]
 <br>
 <img src="https://github.com/silver-liq9118/php_website_basic/assets/68416184/ecc510a8-c6e1-4ac8-99ed-1b98e9bc1366.png"  width="400" height="400"/>
 <br>
 ### [board page]
-![image](https://github.com/silver-liq9118/php_website_basic/assets/68416184/033f7567-509b-4b84-adf5-6ea7ae3fd3b3)
+<br>
+<image src="https://github.com/silver-liq9118/php_website_basic/assets/68416184/033f7567-509b-4b84-adf5-6ea7ae3fd3b3"/>
 
 
 
