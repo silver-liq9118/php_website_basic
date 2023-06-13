@@ -5,9 +5,24 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$title = $_POST['title'];
-$content = $_POST['content'];
-$author =$_SESSION['username'];
+if(isset($_SESSION['email']) && isset($_SESSION['username'])){
+
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $author =$_SESSION['username'];
+
+}
+
+else {
+
+    $title = "";
+    $content ="";
+    $author ="";
+
+
+}
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //title, author, created_at
