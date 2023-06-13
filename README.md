@@ -1,7 +1,11 @@
 # php_website_basic
 PHP Web site basic, login and sign up and posts board <br> 
-(posts board writing and reading and searching ... delete update is not yet.) <br>
-(posts board can access only logined user) <br>
+posts board writing and reading and searching and file uploading  ... delete update is not yet.<br>
+database schema in git-hub is to be updated soon, refer to my tstory in korean <br>
+I will do my best every day! <br>
+sorry for upload file func and page isnot writed absolute path <br>
+please change ur code corretly path (refer to C:\xampp\htdocs\somefile\PHPweb path) <br>
+posts board can access only logined user but I just find access error at board_page.php.. (to be fixed them) <br>
 
 <br>
 &#128549; Sorry for this program about spagetti code &#127837;
