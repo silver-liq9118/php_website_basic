@@ -27,7 +27,10 @@ More information in just korean tstory blog url
 https://silver-liq9118.tistory.com/entry/Project-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B5%AC%EC%B6%95-PHP-3-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A9%94%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%8F-%EC%93%B0%EA%B8%B0
 
 PHP 웹 사이트 기본으로 로그인 기능과 회원가입 기능이 있습니다.
-posts board 글쓰기 기능과 글 읽기 기능이 추가되었습니다!
+posts board 글쓰기 기능과 글 읽기 기능, 글 찾기, 파일업로딩등이있습니다.
+하지만 파일 업로딩 기능은 모두 상대경로로 작성되었으므로, 꼭 파일 패스를 확인하세요!
+(참조 C:\xampp\htdocs\somefile\PHPweb path)
+
 더 자세한 정보는 위의 티스토리 블로그를 방문해주세요!
 
 *만들다가 느낀거지만 클린하지 않은 &#127837;"스파게티 코드"&#127837;네요... &#128549;&#128549;
