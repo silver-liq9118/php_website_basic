@@ -30,7 +30,6 @@ try
             while ($row = $result->fetch_assoc()) {
                 $rows[] = $row;  // 각 행을 배열에 추가
             }
-
             include "board_page.php";       
             }}
 

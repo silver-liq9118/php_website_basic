@@ -20,6 +20,8 @@ else {
     $author ="";
 
 
+    return include "access_failed.html";
+
 }
 
 
