@@ -5,10 +5,15 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
+if(isset($_SESSION['email']) && isset($_SESSION['username'])){
 $email = $_SESSION['email'];
 $username =$_SESSION['username'];
 // 세션에서 유저 이름 가져오기
+}
+else {
+$email = "";
+$username ="";
+}
 
 try   
     {
@@ -32,6 +37,7 @@ try
     else {
 
     // 로그인 을 안했을 때
+   
     include "access_failed.html"; }
                                         }
     
