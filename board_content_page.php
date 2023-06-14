@@ -107,8 +107,8 @@
             //$fileName = pathinfo($filename_user, PATHINFO_FILENAME); // 확장자를 제외한 파일 이름 추출
             //경로 인코딩이 도저히 안돼서절대경로로 변경      
             //echo "$filepath";
-                echo '<div class="button-group"><a href="' . $filepath . '" download class="download-link">';
-                echo '파일 다운로드</div></a>';
+            echo '<div class="button-group"><a href="' . $filepath . '" download="' . $filename_user . '" class="download-link">';
+            echo '파일 다운로드</div></a>';
         }
 
         ?>
