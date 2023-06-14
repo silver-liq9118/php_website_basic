@@ -1,3 +1,23 @@
+<?php
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if(isset($_SESSION['email']) && isset($_SESSION['username'])){
+        $email = $_SESSION['email'];
+        $username =$_SESSION['username'];
+        // 세션에서 유저 이름 가져오기
+        }
+        else {
+        $email = "";
+        $username ="";
+        return include "access_failed.html";
+        }
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,7 +139,6 @@
             <th>작성일</th>
         </tr>
         <?php
-
         // 게시물 데이터를 동적으로 표에 추가합니다.
 
         if ($rows === 0) {

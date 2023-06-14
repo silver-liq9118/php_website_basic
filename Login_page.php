@@ -1,3 +1,79 @@
+
+<?php 
+if (session_status() === PHP_SESSION_NONE) {
+ session_start();
+ }
+
+$username= $_SESSION['username'] ;
+
+if ($username){
+?>
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Hello PHP</title>
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              text-align: center;
+              background-color: #f5f5f5;
+          }
+  
+          h1 {
+              color: #333;
+          }
+  
+          .message {
+              margin-bottom: 20px;
+              font-size: 18px;
+              color: #777;
+          }
+  
+          .button-container {
+              margin-top: 20px;
+          }
+  
+          .button-container button {
+              padding: 10px 20px;
+              font-size: 16px;
+              background-color: #4caf50;
+              color: #fff;
+              border: none;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+          }
+  
+          .button-container button:hover {
+              background-color: #45a049;
+          }
+      </style>
+  </head>
+  <body>
+
+  <h1><?= $username; ?> 님! &#128075;</h1>
+                <h1>이미 로그인되었습니다. &#128064;</h1>
+                
+                <div class="message">
+                    새로운 계정으로 로그인하시려면 로그아웃 후 진행해주세요.</div>
+                <div class="button-container">    
+                    <button onclick="goToBoardList()">Go to Board this user!</button>
+                    <button onclick="logout()">Logout</button>
+                </div>
+                <script>
+        function goToBoardList() {           
+            window.location.href = "board.php";   
+        }
+        function logout() {
+            window.location.href = "Logout.php";
+        }
+    </script>
+  
+
+<?php }
+else { ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,13 +149,17 @@
   <div class="container">
     <h2>&#127752;Hello PHP World&#127752;</h2>
     <?php
-        if (session_status() === PHP_SESSION_NONE) {
-          session_start();}
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      
-        $email = $_POST['email'];
-        $password = $_POST['password'];  
-    }
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();}
+
+    else{
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+          $email = $_POST['email'];
+          $password = $_POST['password'];  
+      }}
+  
+
+
     ?>
     <form action="Login.php" method="post">
       <div class="form-group">
@@ -102,6 +182,6 @@
   </div>
 </body>
 </html>
-
+<?php }?>
 
 
