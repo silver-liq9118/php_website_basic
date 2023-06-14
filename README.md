@@ -16,6 +16,8 @@ programmer is newbie...
 
 
 ## Using About
+* Porject Time : About 3 days
+
 * Language : PHP, HTML, SQL
 
 * HTML Contents just Korean
