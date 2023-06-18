@@ -59,7 +59,7 @@
             
             $row = $result->fetch_assoc();
             $username = $row['username'];
-            $email = $row['email'];
+            $email = $row['email']; }}
 
     
             if (!isset($_SESSION['email'])) { 
@@ -78,13 +78,12 @@
     <?php
             } 
             else {     
-                    if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                    }
+
                     $username= $_SESSION['username'] ;
                     $email= $_SESSION['email'];
+                   
     ?>          
-                <h1><?= $username; ?> 님! &#128075;</h1>
+                <h1><?php echo $username; ?> 님! &#128075;</h1>
                 <h1>이미 로그인되었습니다. &#128064;</h1>
                 
                 <div class="message">
@@ -95,13 +94,9 @@
                 </div>
     <?php
             }
-        } else {
-            include "access_failed.html";
-        }
-    }
-    else {
-        include "access_failed.html";
-    }
+         
+    
+   
 
     ?>
     <script>

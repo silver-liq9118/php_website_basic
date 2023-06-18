@@ -34,9 +34,9 @@ $result_post = $conn->query($sql_post);
 if ($result_post) {
     // 게시글 추가에 성공한 경우
     $postId = $conn->insert_id; 
-
     // 다시 postId를 가져옴
     if ($postId) {
+        
         // 파일을 추가하고 게시판 페이지로 돌아감
         $uploadedFileName = $_FILES['file']['name'];
         $uploadedFileExt = pathinfo($uploadedFileName, PATHINFO_EXTENSION);  // 파일 확장자 추출
@@ -51,6 +51,7 @@ if ($result_post) {
     }
 
     if ($result_file) {
+    
     include "board.php";
     
     } else { include "write_failed.html";}

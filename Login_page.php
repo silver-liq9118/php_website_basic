@@ -1,12 +1,13 @@
 
 <?php 
+
 if (session_status() === PHP_SESSION_NONE) {
  session_start();
  }
 
-$username= $_SESSION['username'] ;
 
-if ($username){
+
+if (isset($_SESSION['username'])){
 ?>
 <!DOCTYPE html>
   <html>
@@ -49,26 +50,6 @@ if ($username){
           }
       </style>
   </head>
-  <body>
-
-  <h1><?= $username; ?> 님! &#128075;</h1>
-                <h1>이미 로그인되었습니다. &#128064;</h1>
-                
-                <div class="message">
-                    새로운 계정으로 로그인하시려면 로그아웃 후 진행해주세요.</div>
-                <div class="button-container">    
-                    <button onclick="goToBoardList()">Go to Board this user!</button>
-                    <button onclick="logout()">Logout</button>
-                </div>
-                <script>
-        function goToBoardList() {           
-            window.location.href = "board.php";   
-        }
-        function logout() {
-            window.location.href = "Logout.php";
-        }
-    </script>
-  
 
 <?php }
 else { ?>
