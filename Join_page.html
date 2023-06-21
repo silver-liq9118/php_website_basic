@@ -213,27 +213,32 @@
   <div class="container">
     <h2>&#127939;Join US&#127939;</h2>
     <form action="join.php" method="post" onsubmit="return confirm_error()" autocomplete="off">
-      <form action="check_duplicate.php" method="post" autocomplete="off"> 
+      
+      <!-- ID 입력 및 중복체크 -->
       <div class="form-group">
-        <!--ID 입력 및 중복체크-->
         <div class="input-row">
-        <label for="email" class="input-label">ID:</label>
-        <input type="text" id="email" name="email" required
-          placeholder="example@abc.com">
-        <button type="button" onclick="id_duplication()"  class="custom-button">중복 확인</button>
-        </div></form>
-        <div class="error-message"><p id="duplicate_message"></p></div>
-
-        <!--이름 입력 -->
-        <form action="check_duplicate_name.php" method="post" autocomplete="off"> 
-        <div class="input-row">
-        <label for="username" class="input-label">Name:</label>
-        <input type="text" id="username" name="username" required>
-        <button type="button" onclick="username_duplication()"  class="custom-button">중복 확인</button>
+          <label for="email" class="input-label">ID:</label>
+          <input type="text" id="email" name="email" required placeholder="example@abc.com">
+          <button type="button" onclick="id_duplication()" class="custom-button">중복 확인</button>
         </div>
-        <div class="error-message"><p id="duplicate_username_message"></p></div> </form>
+        <div class="error-message">
+          <p id="duplicate_message"></p>
+        </div>
+      </div>
 
-        <!--패스워드-->
+      <!-- 이름 입력 -->
+      <div class="form-group">
+        <div class="input-row">
+          <label for="username" class="input-label">Name:</label>
+          <input type="text" id="username" name="username" required>
+          <button type="button" onclick="username_duplication()" class="custom-button">중복 확인</button>
+        </div>
+        <div class="error-message">
+          <p id="duplicate_username_message"></p>
+        </div>
+      </div>
+
+      <!-- 패스워드 -->
       <div class="form-group">
         <div class="input-row">
           <label for="password" class="input-label">Password:</label>
@@ -245,14 +250,19 @@
           <input type="password" id="password_confirm" name="password_confirm" required>
         </div>
 
-        <div class="error-message"><p id="password_confirm_error"></p></div>
-        <div class="error-message"><p id="confirm_error"></p></div>
-        <div class="error-message"><p id="name_confirm_error"></p></div>
-
+        <div class="error-message">
+          <p id="password_confirm_error"></p>
+        </div>
+        <div class="error-message">
+          <p id="confirm_error"></p>
+        </div>
+        <div class="error-message">
+          <p id="name_confirm_error"></p>
+        </div>
       </div>
 
       <input type="submit" onclick="confirm_error()" value="회원가입" name="join">
-    
     </form>
+  </div>
 </body>
 </html> 

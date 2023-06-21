@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $sql = "SELECT username FROM users WHERE username='$username'";
   $result = $conn->query($sql);
 
-if(mysqli_num_rows($result)){
+if($result->num_rows > 0){
   
 echo "중복된 Name입니다.<br>";     
     

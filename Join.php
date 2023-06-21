@@ -8,7 +8,6 @@ try {
             $password_confirm = $_POST['password_confirm'];
             $email = $_POST['email'];
             $username = $_POST['username'];
-
             if ($password === $password_confirm) {
                 $sql = "INSERT INTO users (email, password, username) VALUES ('$email', '$password', '$username')";
                 $result = $conn->query($sql);
@@ -19,6 +18,7 @@ try {
                         'password_confirm' => $password_confirm,
                         'email' => $email,
                         'username' => $username
+
                     ];
 
                 ?>
@@ -59,8 +59,8 @@ try {
                 </head>
                 <body>
                     <h1>회원 가입 완료!</h1>
-                    <p>반갑습니다, <?= $username ?> 회원님!</p>
-                    <p>&#128273; 로그인을 하시려면 <a class="login-button" href="Login_page.html">로그인</a> 버튼을 클릭해주세요.</p>
+                    <p>반갑습니다, <?php echo $username ?> 회원님!</p>
+                    <p>&#128273; 로그인을 하시려면 <a class="login-button" href="Login_page.php">로그인</a> 버튼을 클릭해주세요.</p>
                 </body>
                 </html>
             <?php } unset($_SESSION['signup_values']);
@@ -75,7 +75,7 @@ try {
                 <!DOCTYPE html>
                 <html>
                 <meta charset="UTF-8">
-                    <title>회원 가입 완료</title>
+                    <title>회원 가입 실패</title>
                     <style>
                         body {
                             background-color: #f3f3f3;
@@ -104,8 +104,8 @@ try {
                             background-color: #0056b3;
                         }
                     </style> 
-                <h1> 회원 가입에 실패하였습니다.&#128546; <br> 다시 시도해 주세요.</h1>
-                <p>&#127969;홈페이지로 돌아가시려면 <a class="login-button" href="Login_page.html"> 홈페이지 바로가기 </a> 버튼을 클릭해주세요.</p>
+                <h1> 회원 가입에 실패하였거나 부적절한 접근입니다. &#128546; <br> 다시 시도해 주세요.</h1>
+                <p>&#127969;홈페이지로 돌아가시려면 <a class="login-button" href="Login_page.php"> 홈페이지 바로가기 </a> 버튼을 클릭해주세요.</p>
                 <p>&#128221;회원가입 <a class="login-button" href="Join_page.html"> 회원가입</a> 버튼을 클릭해주세요.</p>
                 </html>
                 <?php }?> 

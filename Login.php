@@ -64,7 +64,7 @@
     
             if (!isset($_SESSION['email'])) { 
     ?>
-                <h1>반갑습니다, <?= $username; ?> 님! &#128075;</h1>
+                <h1>반갑습니다, <?php echo $username; ?> 님! &#128075;</h1>
                 <div class="message">
                     Login 되었습니다! PHP World에서 즐거운 시간되세요! 
                 </div>
