@@ -59,41 +59,55 @@
             
             $row = $result->fetch_assoc();
             $username = $row['username'];
-            $email = $row['email']; }}
+            $email = $row['email']; 
 
-    
             if (!isset($_SESSION['email'])) { 
-    ?>
-                <h1>반갑습니다, <?php echo $username; ?> 님! &#128075;</h1>
-                <div class="message">
-                    Login 되었습니다! PHP World에서 즐거운 시간되세요! 
-                </div>
+                ?>
+                            <h1>반갑습니다, <?php echo $username; ?> 님! &#128075;</h1>
+                            <div class="message">
+                                Login 되었습니다! PHP World에서 즐거운 시간되세요! 
+                            </div>
+                            <?php
+                            $_SESSION['username']  = $username ;
+                            $_SESSION['email'] =$email;?>
+                            <div class="button-container">
+                                <button onclick="goToBoardList()">Go to Board</button>
+                                <button onclick="logout()">Logout</button>
+                            </div>
                 <?php
-                $_SESSION['username']  = $username ;
-                $_SESSION['email'] =$email;?>
-                <div class="button-container">
-                    <button onclick="goToBoardList()">Go to Board</button>
-                    <button onclick="logout()">Logout</button>
-                </div>
-    <?php
-            } 
-            else {     
+                        } 
+                        else {     
+            
+                                $username= $_SESSION['username'] ;
+                                $email= $_SESSION['email'];                  
+                ?>          
+                            <h1><?php echo $username; ?> 님! &#128075;</h1>
+                            <h1>이미 로그인되었습니다. &#128064;</h1>
+                            
+                            <div class="message">
+                                새로운 계정으로 로그인하시려면 로그아웃 후 진행해주세요.</div>
+                            <div class="button-container">    
+                                <button onclick="goToBoardList()">Go to Board this user!</button>
+                                <button onclick="logout()">Logout</button>
+                            </div>
+                <?php
+                        }
+        }
 
-                    $username= $_SESSION['username'] ;
-                    $email= $_SESSION['email'];
-                   
-    ?>          
-                <h1><?php echo $username; ?> 님! &#128075;</h1>
-                <h1>이미 로그인되었습니다. &#128064;</h1>
-                
-                <div class="message">
-                    새로운 계정으로 로그인하시려면 로그아웃 후 진행해주세요.</div>
-                <div class="button-container">    
-                    <button onclick="goToBoardList()">Go to Board this user!</button>
-                    <button onclick="logout()">Logout</button>
-                </div>
-    <?php
-            }
+
+    else{
+
+        ?> 
+        
+        <h1> 로그인에 실패 하였습니다 </h1>
+        
+        <?php
+        include "access_failed.html";
+
+
+    }
+    
+    }
          
     
    
